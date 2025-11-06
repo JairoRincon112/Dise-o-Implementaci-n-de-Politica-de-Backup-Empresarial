@@ -1,2 +1,2 @@
-# Dise-o-e-Implementaci-n-de-Pol-tica-de-Backup-Empresarial
+# Diseño-Implementación-de-Politica-de-Backup-Empresarial
 JAIRO RINCON Y CAMILO CUVIDES
