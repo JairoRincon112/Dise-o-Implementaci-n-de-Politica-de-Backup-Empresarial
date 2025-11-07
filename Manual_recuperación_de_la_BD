@@ -1,0 +1,139 @@
+# Manual de Recuperación de la Base de Datos  
+**Proyecto:** Tech Store  
+**Entorno:** MySQL 8.4.3 – Laragon  
+**Autores:** Jairo Rincon y Camilo Cuvides 
+**Fecha:** 06 de noviembre de 2025  
+
+---
+
+## Objetivo del Manual
+
+Establecer los pasos técnicos necesarios para **restaurar la base de datos `Tech Store `** a partir del respaldo generado mediante el comando `mysqldump`, garantizando la integridad y continuidad de la información ante fallos o pérdida total del sistema.
+
+---
+
+## Escenario de Recuperación
+
+Se asume que el sistema ha sufrido una falla y que:
+- La base de datos original (`Tech Store`) fue eliminada o dañada.  
+- Se dispone de un respaldo reciente ubicado en la ruta:  
+  ```
+  C:\backups\techstore_2025-06-11
+  ```
+- Se cuenta con MySQL operativo en el entorno **Laragon**.  
+
+---
+
+## Procedimiento de Recuperación Paso a Paso
+
+### **Paso 1 – Verificar la existencia del respaldo**
+Antes de iniciar, confirmar que el archivo `.sql` se encuentra disponible:
+
+```cmd
+dir C:\backups
+```
+Deberías ver algo como:
+```
+techstore_2025-06-11
+```
+
+>  Si el archivo no aparece, copiar el respaldo más reciente a la carpeta `C:\backups\`.
+
+---
+
+### **Paso 2 – Iniciar el servidor MySQL**
+Asegúrate de que el servicio MySQL esté activo desde Laragon:
+1. Abre Laragon.  
+2. Comprueba que el botón **MySQL** esté en color verde.  
+3. Si no lo está, haz clic en **Start All** para iniciarlo.
+
+---
+
+### **Paso 3 – Crear una base de datos vacía**
+Abrir la consola MySQL y ejecutar:
+
+```sql
+CREATE DATABASE techstore;
+```
+
+> Esto creará el contenedor vacío donde se importará toda la estructura y los datos.
+
+---
+
+### **Paso 4 – Restaurar el respaldo**
+En **CMD** o la terminal de Laragon, ejecutar el siguiente comando:
+
+```cmd
+"C:\laragon\bin\mysql\mysql-8.4.3-winx64\bin\mysql.exe" -u root techstore < "C:\backups\techstore_2025-06-11"
+```
+
+> Al presionar *Enter*, te pedirá la contraseña del usuario `root` (o se ejecutará directamente si está vacía que en nuestro caso, esta vacía).  
+> Este comando importará todas las tablas, relaciones y registros almacenados en el backup.
+
+---
+
+### **Paso 5 – Verificar la restauración**
+Accede nuevamente a MySQL y ejecuta:
+
+```sql
+USE techstore;
+SHOW TABLES;
+```
+
+> Debes visualizar todas las tablas del sistema (`productos`, `ventas`, etc.).
+
+---
+
+### **Paso 6 – Validar integridad de los datos**
+Confirma que los registros fueron recuperados correctamente:
+
+```sql
+SELECT COUNT(*) FROM coventastizacion;
+```
+
+Resultado esperado:
+```
+ventas → 5000
+```
+
+> Si los conteos coinciden con los valores del respaldo, la recuperación fue **exitosa**.
+
+---
+
+### **Paso 7 – Registrar la recuperación**
+Se recomienda documentar:
+- Fecha y hora de la restauración.  
+- Nombre del archivo restaurado.  
+- Responsable del proceso.  
+- Observaciones (errores, verificaciones, tiempos de ejecución).
+
+Ejemplo de registro:
+
+| Fecha | Archivo Restaurado | Usuario | Estado | Observaciones |
+|--------|--------------------|----------|---------|----------------|
+| 06/11/2025 | techstore_2025-06-11 | root | Éxito | Recuperación completa y verificada. |
+
+---
+
+### **Paso 8 – Reanudar operaciones**
+Una vez validada la integridad:
+- Reabrir las aplicaciones que usen la base (`Aurum`, paneles administrativos, etc.).  
+- Confirmar que los usuarios pueden consultar y registrar datos sin errores.
+
+---
+
+## Recomendaciones Finales
+
+1. Mantener **copias actualizadas** del archivo `.sql` en una ubicación externa o en la nube (Google Drive, OneDrive).  
+2. Verificar el backup al menos una vez por semana mediante una restauración de prueba.  
+3. No modificar el contenido del archivo `.sql` manualmente.  
+4. Automatizar la generación del respaldo con el script `.bat` diario.  
+5. Documentar toda restauración en un registro de incidentes o bitácora técnica.
+
+---
+
+## Resultado Esperado
+
+> Al finalizar este procedimiento, la base de datos `techstore` debe estar completamente restaurada, con su estructura, datos y relaciones intactas, garantizando la continuidad operativa del sistema.
+
+---
