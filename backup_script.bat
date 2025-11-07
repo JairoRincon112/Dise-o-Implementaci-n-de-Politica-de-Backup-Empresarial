@@ -1,7 +1,7 @@
 @echo off
 REM ============================================
 REM   SCRIPT AUTOMATIZADO DE BACKUP MYSQL
-REM   Proyecto: Jewelry Workshop - Taller FESC
+REM   Proyecto: Tech Store - Taller FESC
 REM   Desarrollado en Laragon (MySQL 8.4.3)
 REM ============================================
 
