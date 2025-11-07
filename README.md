@@ -58,7 +58,7 @@ A continuación, se presentan las capturas de evidencia correspondientes a cada 
 ---
 
 ### Evidencia 2 – Archivo `.sql` Generado
-![Evidencia 2 – Archivo generado en C:\backups](./images_backup/archivo_sql_generado.png)
+![Evidencia 2 – Archivo generado en C:\backups](./images_backup/file_sql_generado.png)
 
 > En esta evidencia se visualiza el archivo **`techstore_2025-06-11`** generado automáticamente por el script.  
 > Su presencia y tamaño confirman que el respaldo fue creado correctamente dentro de la carpeta `C:\backups\`.
@@ -66,9 +66,9 @@ A continuación, se presentan las capturas de evidencia correspondientes a cada 
 ---
 
 ### Evidencia 3 – Simulación de Falla (Eliminación de Tabla)
-![Evidencia 3 – Simulación de falla (1)](./images_backup/simulacion_fallo_1.1.png)
-![Evidencia 4 – Simulación de falla (1)](./images_backup/simulacion_fallo_1.2.png)
-![Evidencia 5 – Simulación de falla (2)](./images_backup/simulacion_fallo_2.png)
+![Evidencia 3 – Simulación de falla (1)](./images_backup/simulación_fallo_1.1.png)
+![Evidencia 4 – Simulación de falla (1)](./images_backup/simulación_fallo_1.2.png)
+![Evidencia 5 – Simulación de falla (2)](./images_backup/simulación_fallo_2.png)
 
 > En esta fase se simula una pérdida de información eliminando la tabla `ventas`.  
 > Las capturas muestran la ejecución del comando `DROP TABLE ventas;` y la verificación posterior de que la tabla ya no aparece en el listado (`SHOW TABLES;`).
@@ -76,8 +76,8 @@ A continuación, se presentan las capturas de evidencia correspondientes a cada 
 ---
 
 ### Evidencia 4 – Restauración desde el Backup
-![Evidencia 6 – Restauración desde backup (1)](./images_backup/restauracion_1.png)
-![Evidencia 7 – Restauración desde backup (2)](./images_backup/restauracion_2.png)
+![Evidencia 6 – Restauración desde backup (1)](./images_backup/restauración_1.png)
+![Evidencia 7 – Restauración desde backup (2)](./images_backup/restauración_2.png)
 
 > Estas capturas demuestran la restauración completa de la base de datos desde el respaldo almacenado.  
 > El comando ejecutado fue:
@@ -89,7 +89,7 @@ A continuación, se presentan las capturas de evidencia correspondientes a cada 
 ---
 
 ### Evidencia 5 – Verificación de Integridad de los Datos
-![Evidencia 8 – Verificación de conteos](./images_backup/restauracion_2.png)
+![Evidencia 8 – Verificación de conteos](./images_backup/restauración_2.png)
 
 > Finalmente, se validan los registros restaurados mediante consultas de conteo (`SELECT COUNT(*)`).  
 > Los resultados muestran:
