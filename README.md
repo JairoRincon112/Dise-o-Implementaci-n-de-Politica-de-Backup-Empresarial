@@ -1,8 +1,12 @@
 # Taller Práctico Integrador – Bases de Datos
-> **Tema:** Implementación de Backup y Restore en MySQL  
+> **Tema:** Implementación de Backup y Restore en MySQL
+
 > **Proyecto:** Tech Store
+
 > **Autores:** Jairo Rincon - Camilo Cuvides
-> **Docente:** Hely Suarez Marín  
+
+> **Docente:** Hely Suarez Marín
+
 > **Fecha:** 06 de noviembre de 2025
 FESC
 ---
